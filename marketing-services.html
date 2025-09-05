@@ -1,0 +1,1257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marketing Services - Equisharer</title>
+    <meta name="robots" content="noindex, nofollow">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        background: 'hsl(0 0% 100%)',
+                        foreground: 'hsl(0 0% 3.9%)',
+                        card: 'hsl(0 0% 100%)',
+                        'card-foreground': 'hsl(0 0% 3.9%)',
+                        primary: 'hsl(0 0% 9%)',
+                        'primary-foreground': 'hsl(0 0% 98%)',
+                        secondary: 'hsl(0 0% 96.1%)',
+                        'secondary-foreground': 'hsl(0 0% 9%)',
+                        muted: 'hsl(0 0% 96.1%)',
+                        'muted-foreground': 'hsl(0 0% 45.1%)',
+                        accent: 'hsl(0 0% 96.1%)',
+                        'accent-foreground': 'hsl(0 0% 9%)',
+                        destructive: 'hsl(0 84.2% 60.2%)',
+                        'destructive-foreground': 'hsl(0 0% 98%)',
+                        border: 'hsl(0 0% 89.8%)',
+                        input: 'hsl(0 0% 89.8%)',
+                        ring: 'hsl(0 0% 3.9%)'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .text-balance {
+            text-wrap: balance;
+        }
+        
+        /* Custom animations */
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        .animate-spin {
+            animation: spin 1s linear infinite;
+        }
+        
+        /* Custom gradient text */
+        .gradient-text {
+            background: linear-gradient(to right, rgb(250 204 21), rgb(234 179 8));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Form styles */
+        .form-input, .form-select {
+            background-color: rgb(51 65 85);
+            border: 1px solid rgb(71 85 105);
+            color: white;
+            padding: 0.75rem;
+            border-radius: 0.375rem;
+            width: 100%;
+        }
+        
+        .form-input:focus, .form-select:focus {
+            outline: none;
+            border-color: rgb(234 179 8);
+            box-shadow: 0 0 0 1px rgb(234 179 8);
+        }
+        
+        .form-input::placeholder {
+            color: rgb(148 163 184);
+        }
+        
+        .form-textarea {
+            background-color: rgb(51 65 85);
+            border: 1px solid rgb(71 85 105);
+            color: white;
+            padding: 0.75rem;
+            border-radius: 0.375rem;
+            width: 100%;
+            resize: none;
+        }
+        
+        .form-textarea:focus {
+            outline: none;
+            border-color: rgb(234 179 8);
+            box-shadow: 0 0 0 1px rgb(234 179 8);
+        }
+        
+        .form-textarea::placeholder {
+            color: rgb(148 163 184);
+        }
+        
+        /* Button styles */
+        .btn-primary {
+            background: linear-gradient(to right, rgb(234 179 8), rgb(202 138 4));
+            color: rgb(15 23 42);
+            font-weight: 600;
+            padding: 0.75rem 2rem;
+            border-radius: 0.375rem;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+        }
+        
+        .btn-primary:hover {
+            background: linear-gradient(to right, rgb(202 138 4), rgb(161 98 7));
+        }
+        
+        .btn-outline {
+            background: transparent;
+            color: rgb(234 179 8);
+            border: 1px solid rgba(234, 179, 8, 0.5);
+            font-weight: 600;
+            padding: 0.75rem 2rem;
+            border-radius: 0.375rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+        }
+        
+        .btn-outline:hover {
+            background: rgba(234, 179, 8, 0.1);
+        }
+        
+        /* Card styles */
+        .card {
+            background: linear-gradient(135deg, rgb(30 41 59), rgb(15 23 42));
+            border: 1px solid rgba(234, 179, 8, 0.2);
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            transition: all 0.3s;
+        }
+        
+        .card:hover {
+            border-color: rgba(234, 179, 8, 0.4);
+        }
+        
+        /* Success/Error message styles */
+        .success-message {
+            background: rgba(34, 197, 94, 0.1);
+            border: 1px solid rgba(34, 197, 94, 0.2);
+            border-radius: 0.375rem;
+            padding: 1rem;
+            margin-top: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: rgb(34 197 94);
+        }
+        
+        .error-message {
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid rgba(239, 68, 68, 0.2);
+            border-radius: 0.375rem;
+            padding: 1rem;
+            margin-top: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: rgb(239 68 68);
+        }
+        
+        /* Checkbox styles */
+        .checkbox {
+            width: 1rem;
+            height: 1rem;
+            border: 1px solid rgb(107 114 128);
+            border-radius: 0.25rem;
+            background: transparent;
+            cursor: pointer;
+        }
+        
+        .checkbox:checked {
+            background: rgb(234 179 8);
+            border-color: rgb(234 179 8);
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900">
+    <!-- Navigation -->
+    <nav class="border-b border-yellow-500/20 bg-slate-900/95 backdrop-blur-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <a href="index.html" class="flex items-center gap-2">
+                        <div class="w-8 h-8 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-lg flex items-center justify-center">
+                            <!-- TrendingUp Icon -->
+                            <svg class="h-5 w-5 text-slate-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+                            </svg>
+                        </div>
+                        <span class="text-2xl font-bold gradient-text">Equisharer</span>
+                    </a>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="text-slate-300 hover:text-yellow-400 transition-colors">Home</a>
+                    <a href="local-seo.html" class="text-slate-300 hover:text-yellow-400 transition-colors">Local SEO</a>
+                    <a href="website-design.html" class="text-slate-300 hover:text-yellow-400 transition-colors">Website Design</a>
+                    <a href="paid-ads.html" class="text-slate-300 hover:text-yellow-400 transition-colors">Paid Ads</a>
+                    <a href="marketing-services.html" class="text-yellow-400 font-medium">Marketing Services</a>
+                    <a href="https://cal.com/jordanpearce" target="_blank" rel="noopener noreferrer" class="btn-primary">
+                        Get Started
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative py-20 lg:py-32 overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-r from-yellow-500/10 to-green-500/10"></div>
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <div class="mb-6 inline-flex items-center gap-2 bg-yellow-500/20 text-yellow-400 border border-yellow-500/30 px-3 py-1 rounded-full text-sm">
+                    🎯 Complete Marketing Solution
+                </div>
+                <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6">
+                    Full-Service Marketing
+                    <span class="block gradient-text">For Home Services</span>
+                </h1>
+                <p class="text-xl md:text-2xl text-slate-300 mb-8 max-w-4xl mx-auto leading-relaxed">
+                    Complete digital advertising and outbound marketing management for contractors, remodelers, plumbers, and
+                    home service professionals. Facebook Ads, Google PPC, Streaming TV, Video Ads, SMS campaigns, and
+                    Voicemail Drops - all managed for <span class="text-yellow-400 font-bold">$1,750 per month</span>.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                    <a href="#get-started" class="btn-primary text-lg px-8 py-4">
+                        Start Growing Today
+                        <!-- ArrowRight Icon -->
+                        <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                        </svg>
+                    </a>
+                    <a href="https://cal.com/jordanpearce" target="_blank" rel="noopener noreferrer" class="btn-outline text-lg px-8 py-4">
+                        Schedule Strategy Call
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Overview -->
+    <section class="py-20 bg-slate-800/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+                    Everything You Need To
+                    <span class="block text-yellow-400">Dominate Your Market</span>
+                </h2>
+                <p class="text-xl text-slate-300 max-w-3xl mx-auto">
+                    Our comprehensive marketing suite covers every channel your home service business needs to generate
+                    consistent, high-quality leads
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="card">
+                    <div class="w-12 h-12 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-lg flex items-center justify-center mb-4">
+                        <!-- Users Icon -->
+                        <svg class="h-6 w-6 text-slate-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-white text-xl font-semibold mb-2">Facebook & Instagram Ads</h3>
+                    <p class="text-slate-400 mb-4">Targeted social media advertising to reach homeowners in your service area</p>
+                    <ul class="space-y-2 text-slate-300">
+                        <li class="flex items-center gap-2">
+                            <!-- CheckCircle Icon -->
+                            <svg class="h-4 w-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            Local audience targeting
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <svg class="h-4 w-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            Lead generation campaigns
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <svg class="h-4 w-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            Retargeting campaigns
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <svg class="h-4 w-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            Creative design & testing
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <div class="w-12 h-12 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-lg flex items-center justify-center mb-4">
+                        <!-- Target Icon -->
+                        <svg class="h-6 w-6 text-slate-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-white text-xl font-semibold mb-2">Google PPC Ads</h3>
+                    <p class="text-slate-400 mb-4">Capture high-intent customers searching for your services right now</p>
+                    <ul class="space-y-2 text-slate-300">
+                        <li class="flex items-center gap-2">
+                            <svg class="h-4 w-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            Search campaigns
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <svg class="h-4 w-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            Local Services Ads
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <svg class="h-4 w-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            Display advertising
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <svg class="h-4 w-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            YouTube advertising
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <div class="w-12 h-12 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-lg flex items-center justify-center mb-4">
+                        <!-- TV Icon -->
+                        <svg class="h-6 w-6 text-slate-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-white text-xl font-semibold mb-2">Streaming TV Ads</h3>
+                    <p class="text-slate-400 mb-4">Reach homeowners on their favorite streaming platforms and connected TVs</p>
+                    <ul class="space-y-2 text-slate-300">
+                        <li class="flex items-center gap-2">
+                            <svg class="h-4 w-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            Connected TV advertising
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <svg class="h-4 w-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            Streaming platform ads
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <svg class="h-4 w-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            Geographic targeting
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <svg class="h-4 w-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            Brand awareness campaigns
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <div class="w-12 h-12 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-lg flex items-center justify-center mb-4">
+                        <!-- Zap Icon -->
+                        <svg class="h-6 w-6 text-slate-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-white text-xl font-semibold mb-2">Video Advertising</h3>
+                    <p class="text-slate-400 mb-4">Engaging video ads across YouTube, Facebook, and streaming platforms</p>
+                    <ul class="space-y-2 text-slate-300">
+                        <li class="flex items-center gap-2">
+                            <svg class="h-4 w-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            YouTube video ads
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <svg class="h-4 w-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            Facebook video campaigns
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <svg class="h-4 w-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            Video production support
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <svg class="h-4 w-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            Performance optimization
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <div class="w-12 h-12 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-lg flex items-center justify-center mb-4">
+                        <!-- MessageSquare Icon -->
+                        <svg class="h-6 w-6 text-slate-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-white text-xl font-semibold mb-2">SMS Text Marketing</h3>
+                    <p class="text-slate-400 mb-4">Direct text message campaigns to engage prospects and nurture leads</p>
+                    <ul class="space-y-2 text-slate-300">
+                        <li class="flex items-center gap-2">
+                            <svg class="h-4 w-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            Lead nurturing sequences
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <svg class="h-4 w-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            Appointment reminders
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <svg class="h-4 w-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            Follow-up campaigns
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <svg class="h-4 w-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            Promotional messaging
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <div class="w-12 h-12 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-lg flex items-center justify-center mb-4">
+                        <!-- Phone Icon -->
+                        <svg class="h-6 w-6 text-slate-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-white text-xl font-semibold mb-2">Voicemail Drops</h3>
+                    <p class="text-slate-400 mb-4">Automated voicemail campaigns to reach prospects directly</p>
+                    <ul class="space-y-2 text-slate-300">
+                        <li class="flex items-center gap-2">
+                            <svg class="h-4 w-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            Ringless voicemail delivery
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <svg class="h-4 w-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            Targeted prospect lists
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <svg class="h-4 w-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            Custom message recording
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <svg class="h-4 w-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            Response tracking
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Target Industries -->
+    <section class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+                    Perfect For
+                    <span class="block text-yellow-400">Home Service Professionals</span>
+                </h2>
+                <p class="text-xl text-slate-300 max-w-3xl mx-auto">
+                    Our marketing services are specifically designed for home service businesses that need consistent,
+                    high-quality leads
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="card text-center">
+                    <div class="w-12 h-12 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-lg flex items-center justify-center mx-auto mb-4 text-slate-900">
+                        <!-- Hammer Icon -->
+                        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.933 12.8a1 1 0 000-1.6L6.6 7.2A1 1 0 005 8v8a1 1 0 001.6.8l5.333-4zM19.933 12.8a1 1 0 000-1.6l-5.333-4A1 1 0 0013 8v8a1 1 0 001.6.8l5.333-4z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-white font-semibold text-lg mb-2">General Contractors</h3>
+                    <p class="text-slate-400 text-sm">Construction & Building</p>
+                </div>
+                <div class="card text-center">
+                    <div class="w-12 h-12 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-lg flex items-center justify-center mx-auto mb-4 text-slate-900">
+                        <!-- Home Icon -->
+                        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-white font-semibold text-lg mb-2">Remodeling</h3>
+                    <p class="text-slate-400 text-sm">Kitchen & Bath Remodels</p>
+                </div>
+                <div class="card text-center">
+                    <div class="w-12 h-12 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-lg flex items-center justify-center mx-auto mb-4 text-slate-900">
+                        <!-- Wrench Icon -->
+                        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-white font-semibold text-lg mb-2">Plumbing Services</h3>
+                    <p class="text-slate-400 text-sm">Residential & Commercial</p>
+                </div>
+                <div class="card text-center">
+                    <div class="w-12 h-12 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-lg flex items-center justify-center mx-auto mb-4 text-slate-900">
+                        <!-- Settings Icon -->
+                        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-white font-semibold text-lg mb-2">HVAC Contractors</h3>
+                    <p class="text-slate-400 text-sm">Heating & Cooling</p>
+                </div>
+                <div class="card text-center">
+                    <div class="w-12 h-12 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-lg flex items-center justify-center mx-auto mb-4 text-slate-900">
+                        <!-- Zap Icon -->
+                        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-white font-semibold text-lg mb-2">Electrical Services</h3>
+                    <p class="text-slate-400 text-sm">Residential & Commercial</p>
+                </div>
+                <div class="card text-center">
+                    <div class="w-12 h-12 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-lg flex items-center justify-center mx-auto mb-4 text-slate-900">
+                        <!-- Home Icon -->
+                        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-white font-semibold text-lg mb-2">Roofing Companies</h3>
+                    <p class="text-slate-400 text-sm">Repair & Replacement</p>
+                </div>
+                <div class="card text-center">
+                    <div class="w-12 h-12 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-lg flex items-center justify-center mx-auto mb-4 text-slate-900">
+                        <!-- Home Icon -->
+                        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-white font-semibold text-lg mb-2">Landscaping</h3>
+                    <p class="text-slate-400 text-sm">Design & Maintenance</p>
+                </div>
+                <div class="card text-center">
+                    <div class="w-12 h-12 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-lg flex items-center justify-center mx-auto mb-4 text-slate-900">
+                        <!-- Hammer Icon -->
+                        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.933 12.8a1 1 0 000-1.6L6.6 7.2A1 1 0 005 8v8a1 1 0 001.6.8l5.333-4zM19.933 12.8a1 1 0 000-1.6l-5.333-4A1 1 0 0013 8v8a1 1 0 001.6.8l5.333-4z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-white font-semibold text-lg mb-2">Home Improvement</h3>
+                    <p class="text-slate-400 text-sm">All Home Services</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What's Included -->
+    <section class="py-20 bg-slate-800/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+                    What's Included For
+                    <span class="block text-yellow-400">$1,750/Month</span>
+                </h2>
+                <p class="text-xl text-slate-300 max-w-3xl mx-auto">
+                    Complete marketing management with everything you need to generate consistent leads and grow your business
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h3 class="text-2xl font-bold text-white mb-6">Complete Service Package</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-start gap-3">
+                            <div class="w-6 h-6 bg-green-500/20 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <svg class="w-4 h-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold mb-1">Full Campaign Management</h4>
+                                <p class="text-slate-300 text-sm">
+                                    Complete setup, optimization, and ongoing management of all advertising campaigns
+                                </p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="w-6 h-6 bg-green-500/20 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <svg class="w-4 h-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold mb-1">Creative Development</h4>
+                                <p class="text-slate-300 text-sm">
+                                    Professional ad creative design, copywriting, and video production support
+                                </p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="w-6 h-6 bg-green-500/20 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <svg class="w-4 h-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold mb-1">Lead Management System</h4>
+                                <p class="text-slate-300 text-sm">
+                                    CRM setup, lead tracking, and automated follow-up sequences
+                                </p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="w-6 h-6 bg-green-500/20 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <svg class="w-4 h-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold mb-1">Performance Reporting</h4>
+                                <p class="text-slate-300 text-sm">
+                                    Monthly detailed reports with ROI analysis and optimization recommendations
+                                </p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="w-6 h-6 bg-green-500/20 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <svg class="w-4 h-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold mb-1">Dedicated Account Manager</h4>
+                                <p class="text-slate-300 text-sm">
+                                    Direct access to your marketing specialist for strategy and support
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="text-center">
+                        <div class="w-20 h-20 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <!-- DollarSign Icon -->
+                            <svg class="h-10 w-10 text-slate-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-4">Investment Breakdown</h3>
+                        <div class="space-y-4">
+                            <div class="flex justify-between items-center py-2 border-b border-slate-700">
+                                <span class="text-slate-300">Monthly Management Fee</span>
+                                <span class="text-yellow-400 font-semibold">$1,750</span>
+                            </div>
+                            <div class="flex justify-between items-center py-2 border-b border-slate-700">
+                                <span class="text-slate-300">Setup & Onboarding</span>
+                                <span class="text-green-400 font-semibold">Included</span>
+                            </div>
+                            <div class="flex justify-between items-center py-2 border-b border-slate-700">
+                                <span class="text-slate-300">Creative Development</span>
+                                <span class="text-green-400 font-semibold">Included</span>
+                            </div>
+                            <div class="flex justify-between items-center py-2 border-b border-slate-700">
+                                <span class="text-slate-300">Reporting & Analytics</span>
+                                <span class="text-green-400 font-semibold">Included</span>
+                            </div>
+                            <div class="bg-yellow-500/10 rounded-lg p-4 mt-4">
+                                <p class="text-yellow-400 font-semibold text-sm">
+                                    * Ad spend budget is separate and managed directly by you
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results & Benefits -->
+    <section class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+                    Why Home Service Businesses
+                    <span class="block text-yellow-400">Choose Our Marketing</span>
+                </h2>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8 mb-16">
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <span class="text-3xl font-bold text-slate-900">5x</span>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-4">More Qualified Leads</h3>
+                    <p class="text-slate-300">
+                        Our multi-channel approach generates 5x more qualified leads than single-channel marketing
+                    </p>
+                </div>
+
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <span class="text-3xl font-bold text-slate-900">40%</span>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-4">Lower Cost Per Lead</h3>
+                    <p class="text-slate-300">
+                        Advanced targeting and optimization reduces your cost per lead by an average of 40%
+                    </p>
+                </div>
+
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <span class="text-3xl font-bold text-slate-900">24/7</span>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-4">Lead Generation</h3>
+                    <p class="text-slate-300">
+                        Automated systems work around the clock to generate and nurture leads for your business
+                    </p>
+                </div>
+            </div>
+
+            <div class="bg-gradient-to-r from-yellow-500/10 to-green-500/10 rounded-2xl p-8 border border-yellow-500/20">
+                <div class="text-center">
+                    <h3 class="text-2xl font-bold text-white mb-6">Our Proven Process</h3>
+                    <div class="grid md:grid-cols-4 gap-6 text-left">
+                        <div class="flex items-start gap-3">
+                            <div class="w-8 h-8 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <span class="text-sm font-bold text-slate-900">1</span>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold mb-2">Strategy & Setup</h4>
+                                <p class="text-slate-300 text-sm">
+                                    Comprehensive market analysis and campaign setup across all channels
+                                </p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="w-8 h-8 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <span class="text-sm font-bold text-slate-900">2</span>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold mb-2">Launch & Monitor</h4>
+                                <p class="text-slate-300 text-sm">
+                                    Campaign launch with real-time monitoring and immediate optimizations
+                                </p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="w-8 h-8 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <span class="text-sm font-bold text-slate-900">3</span>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold mb-2">Optimize & Scale</h4>
+                                <p class="text-slate-300 text-sm">
+                                    Continuous optimization and scaling of successful campaigns
+                                </p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="w-8 h-8 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <span class="text-sm font-bold text-slate-900">4</span>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold mb-2">Report & Grow</h4>
+                                <p class="text-slate-300 text-sm">
+                                    Detailed reporting and strategic planning for continued growth
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Get Started Form Section -->
+    <section id="get-started" class="py-20 bg-slate-800/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+                    Ready To Transform
+                    <span class="block text-yellow-400">Your Marketing?</span>
+                </h2>
+                <p class="text-xl text-slate-300 max-w-3xl mx-auto">
+                    Get started with our complete marketing solution and start generating more qualified leads for your home
+                    service business
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-12 items-start">
+                <!-- Form -->
+                <div class="card max-w-2xl mx-auto">
+                    <h3 class="text-white text-2xl font-semibold mb-2">Get Started - $1,750/Month</h3>
+                    <p class="text-slate-400 mb-6">
+                        Complete marketing management for home service businesses. Fill out the form below to get started.
+                    </p>
+
+                    <!-- Success Message (hidden by default) -->
+                    <div id="success-message" class="success-message hidden">
+                        <!-- CheckCircle Icon -->
+                        <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                        <span>Thank you! We'll contact you within 24 hours to discuss your custom marketing strategy.</span>
+                    </div>
+
+                    <!-- Error Message (hidden by default) -->
+                    <div id="error-message" class="error-message hidden">
+                        <!-- AlertCircle Icon -->
+                        <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                        <span>There was an error submitting your form. Please try again or call us directly.</span>
+                    </div>
+
+                    <form id="marketing-form" onsubmit="handleSubmit(event)" class="space-y-6">
+                        <input type="hidden" name="access_key" value="2288b234-068a-465e-b8a4-bb569f06d2bd">
+                        <input type="hidden" name="subject" value="New Marketing Services Inquiry">
+                        <input type="hidden" name="from_name" value="Equisharer Marketing Services">
+
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div class="space-y-2">
+                                <label for="first_name" class="text-white block text-sm font-medium">First Name *</label>
+                                <input
+                                    id="first_name"
+                                    name="first_name"
+                                    type="text"
+                                    required
+                                    class="form-input"
+                                    placeholder="John"
+                                />
+                            </div>
+                            <div class="space-y-2">
+                                <label for="last_name" class="text-white block text-sm font-medium">Last Name *</label>
+                                <input
+                                    id="last_name"
+                                    name="last_name"
+                                    type="text"
+                                    required
+                                    class="form-input"
+                                    placeholder="Smith"
+                                />
+                            </div>
+                        </div>
+
+                        <div class="space-y-2">
+                            <label for="email" class="text-white block text-sm font-medium">Email Address *</label>
+                            <div class="relative">
+                                <!-- Mail Icon -->
+                                <svg class="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                                </svg>
+                                <input
+                                    id="email"
+                                    name="email"
+                                    type="email"
+                                    required
+                                    class="form-input pl-10"
+                                    placeholder="john@example.com"
+                                />
+                            </div>
+                        </div>
+
+                        <div class="space-y-2">
+                            <label for="phone" class="text-white block text-sm font-medium">Phone Number *</label>
+                            <div class="relative">
+                                <!-- Phone Icon -->
+                                <svg class="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                                </svg>
+                                <input
+                                    id="phone"
+                                    name="phone"
+                                    type="tel"
+                                    required
+                                    class="form-input pl-10"
+                                    placeholder="(555) 123-4567"
+                                />
+                            </div>
+                        </div>
+
+                        <div class="space-y-2">
+                            <label for="business_name" class="text-white block text-sm font-medium">Company/Business Name *</label>
+                            <div class="relative">
+                                <!-- Building Icon -->
+                                <svg class="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                                </svg>
+                                <input
+                                    id="business_name"
+                                    name="business_name"
+                                    type="text"
+                                    required
+                                    class="form-input pl-10"
+                                    placeholder="Your Business Name"
+                                />
+                            </div>
+                        </div>
+
+                        <div class="space-y-2">
+                            <label for="business_type" class="text-white block text-sm font-medium">Type of Home Service Business *</label>
+                            <select
+                                id="business_type"
+                                name="business_type"
+                                required
+                                class="form-select"
+                            >
+                                <option value="">Select your business type</option>
+                                <option value="General Contractor">General Contractor</option>
+                                <option value="Remodeling">Remodeling</option>
+                                <option value="Plumbing">Plumbing</option>
+                                <option value="HVAC">HVAC</option>
+                                <option value="Electrical">Electrical</option>
+                                <option value="Roofing">Roofing</option>
+                                <option value="Landscaping">Landscaping</option>
+                                <option value="Painting">Painting</option>
+                                <option value="Flooring">Flooring</option>
+                                <option value="Kitchen & Bath">Kitchen & Bath</option>
+                                <option value="Windows & Doors">Windows & Doors</option>
+                                <option value="Other Home Services">Other Home Services</option>
+                            </select>
+                        </div>
+
+                        <div class="space-y-2">
+                            <label for="service_area" class="text-white block text-sm font-medium">Primary Service Area *</label>
+                            <input
+                                id="service_area"
+                                name="service_area"
+                                placeholder="e.g., Dallas, TX or Dallas Metro Area"
+                                required
+                                class="form-input"
+                            />
+                        </div>
+
+                        <div class="space-y-2">
+                            <label for="current_marketing" class="text-white block text-sm font-medium">Current Marketing Efforts</label>
+                            <textarea
+                                id="current_marketing"
+                                name="current_marketing"
+                                placeholder="Tell us about your current marketing (Google Ads, Facebook, referrals, etc.)"
+                                rows="3"
+                                class="form-textarea"
+                            ></textarea>
+                        </div>
+
+                        <div class="space-y-2">
+                            <label for="monthly_budget" class="text-white block text-sm font-medium">Current Monthly Marketing Budget *</label>
+                            <select
+                                id="monthly_budget"
+                                name="monthly_budget"
+                                required
+                                class="form-select"
+                            >
+                                <option value="">Select your budget range</option>
+                                <option value="$2,000 - $5,000">$2,000 - $5,000</option>
+                                <option value="$5,000 - $10,000">$5,000 - $10,000</option>
+                                <option value="$10,000 - $20,000">$10,000 - $20,000</option>
+                                <option value="$20,000+">$20,000+</option>
+                                <option value="Not sure">Not sure</option>
+                            </select>
+                        </div>
+
+                        <div class="space-y-2">
+                            <label for="goals" class="text-white block text-sm font-medium">Marketing Goals & Challenges *</label>
+                            <textarea
+                                id="goals"
+                                name="goals"
+                                placeholder="Tell us about your business goals, current challenges, and what you want to achieve with our $1,750/month marketing package..."
+                                rows="4"
+                                required
+                                class="form-textarea"
+                            ></textarea>
+                        </div>
+
+                        <div class="space-y-2">
+                            <label for="challenges" class="text-white block text-sm font-medium">Current Challenges</label>
+                            <textarea
+                                id="challenges"
+                                name="challenges"
+                                placeholder="What marketing challenges are you facing? (e.g., low-quality leads, high cost per lead, inconsistent results, etc.)"
+                                rows="3"
+                                class="form-textarea"
+                            ></textarea>
+                        </div>
+
+                        <div class="space-y-2">
+                            <label for="timeline" class="text-white block text-sm font-medium">When would you like to start?</label>
+                            <select
+                                id="timeline"
+                                name="timeline"
+                                class="form-select"
+                            >
+                                <option value="">Select timeline</option>
+                                <option value="Immediately">Immediately</option>
+                                <option value="Within 2 weeks">Within 2 weeks</option>
+                                <option value="Within 1 month">Within 1 month</option>
+                                <option value="Within 3 months">Within 3 months</option>
+                                <option value="Just researching">Just researching</option>
+                            </select>
+                        </div>
+
+                        <!-- SMS Opt-in Section -->
+                        <div class="space-y-4 p-4 bg-slate-700/50 rounded-lg border border-slate-600">
+                            <div class="flex items-start space-x-3">
+                                <input
+                                    id="sms_opt_in"
+                                    name="sms_opt_in"
+                                    type="checkbox"
+                                    class="checkbox mt-1"
+                                />
+                                <div class="space-y-2">
+                                    <label for="sms_opt_in" class="text-white font-medium cursor-pointer">
+                                        Yes, I'd like to receive SMS updates about my marketing services inquiry
+                                    </label>
+                                    <div class="text-xs text-slate-400 leading-relaxed">
+                                        <p class="mb-2">
+                                            <strong>SMS Consent:</strong> By checking this box, you consent to receive text messages about your
+                                            marketing services inquiry and business growth tips. Message frequency varies.
+                                        </p>
+                                        <p class="mb-2">
+                                            <strong>Opt-out:</strong> Reply STOP to opt-out. Reply HELP for help. Message and data rates may
+                                            apply.
+                                        </p>
+                                        <p>
+                                            By providing your phone number, you agree to our
+                                            <a href="terms-of-service.html" class="text-yellow-400 underline">Terms of Service</a>
+                                            and
+                                            <a href="privacy-policy.html" class="text-yellow-400 underline">Privacy Policy</a>.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button
+                            type="submit"
+                            id="submit-btn"
+                            class="w-full btn-primary text-lg py-3"
+                        >
+                            <span id="submit-text">Get Started - $1,750/Month</span>
+                            <span id="submit-loading" class="hidden">
+                                <div class="animate-spin rounded-full h-4 w-4 border-b-2 border-slate-900 mr-2 inline-block"></div>
+                                Submitting Request...
+                            </span>
+                            <!-- Send Icon -->
+                            <svg id="send-icon" class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/>
+                            </svg>
+                        </button>
+
+                        <p class="text-xs text-slate-400 text-center mt-4">
+                            * Required fields. We'll contact you within 24 hours to discuss your marketing needs.
+                        </p>
+                    </form>
+                </div>
+
+                <!-- Benefits -->
+                <div class="space-y-8">
+                    <div class="grid gap-8">
+                        <div class="card">
+                            <!-- BarChart3 Icon -->
+                            <svg class="h-8 w-8 text-yellow-400 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                            </svg>
+                            <h3 class="text-white font-semibold text-lg mb-2">Complete Marketing Solution</h3>
+                            <p class="text-slate-300 text-sm">
+                                Everything you need in one package - no need to manage multiple vendors or platforms
+                            </p>
+                        </div>
+
+                        <div class="card">
+                            <!-- Target Icon -->
+                            <svg class="h-8 w-8 text-yellow-400 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+                            </svg>
+                            <h3 class="text-white font-semibold text-lg mb-2">Home Service Specialists</h3>
+                            <p class="text-slate-300 text-sm">
+                                We specialize exclusively in home service marketing and understand your unique challenges
+                            </p>
+                        </div>
+
+                        <div class="card">
+                            <!-- Zap Icon -->
+                            <svg class="h-8 w-8 text-yellow-400 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                            </svg>
+                            <h3 class="text-white font-semibold text-lg mb-2">Fast Implementation</h3>
+                            <p class="text-slate-300 text-sm">
+                                Get your campaigns live within 2 weeks and start seeing results immediately
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="bg-gradient-to-r from-yellow-500/10 to-green-500/10 rounded-2xl p-6 border border-yellow-500/20">
+                        <h3 class="text-xl font-bold text-white mb-4">What Happens Next?</h3>
+                        <ul class="space-y-3 text-slate-300">
+                            <li class="flex items-center gap-3">
+                                <svg class="h-5 w-5 text-green-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                                <span>We'll review your business and current marketing efforts</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <svg class="h-5 w-5 text-green-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                                <span>Schedule a strategy call to discuss your goals and budget</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <svg class="h-5 w-5 text-green-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                                <span>Create a custom marketing plan for your business</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <svg class="h-5 w-5 text-green-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                                <span>Launch your campaigns and start generating leads</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 border-t border-yellow-500/20 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="flex items-center gap-2 mb-4 md:mb-0">
+                    <div class="w-8 h-8 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-lg flex items-center justify-center">
+                        <svg class="h-5 w-5 text-slate-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+                        </svg>
+                    </div>
+                    <span class="text-2xl font-bold gradient-text">Equisharer</span>
+                </div>
+                <p class="text-slate-400 text-center md:text-right">
+                    © <span id="current-date"></span> Equisharer. All rights reserved. Growing businesses through strategic partnerships.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Set current date
+        document.getElementById('current-date').textContent = new Date().toLocaleDateString("en-US", {
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+        });
+
+        // Form handling
+        async function handleSubmit(event) {
+            event.preventDefault();
+            
+            const submitBtn = document.getElementById('submit-btn');
+            const submitText = document.getElementById('submit-text');
+            const submitLoading = document.getElementById('submit-loading');
+            const sendIcon = document.getElementById('send-icon');
+            const errorMessage = document.getElementById('error-message');
+            const successMessage = document.getElementById('success-message');
+            const form = document.getElementById('marketing-form');
+            
+            // Show loading state
+            submitBtn.disabled = true;
+            submitText.classList.add('hidden');
+            sendIcon.classList.add('hidden');
+            submitLoading.classList.remove('hidden');
+            errorMessage.classList.add('hidden');
+            successMessage.classList.add('hidden');
+            
+            try {
+                const formData = new FormData(form);
+                
+                // Add SMS opt-in status
+                const smsOptIn = document.getElementById('sms_opt_in').checked;
+                formData.append('sms_opt_in', smsOptIn ? 'Yes' : 'No');
+
+                const response = await fetch('https://api.web3forms.com/submit', {
+                    method: 'POST',
+                    body: formData,
+                });
+
+                if (response.ok) {
+                    // Show success message
+                    successMessage.classList.remove('hidden');
+                    form.reset();
+                } else {
+                    throw new Error('Form submission failed');
+                }
+            } catch (error) {
+                console.error('Form submission error:', error);
+                errorMessage.classList.remove('hidden');
+            } finally {
+                // Reset button state
+                submitBtn.disabled = false;
+                submitText.classList.remove('hidden');
+                sendIcon.classList.remove('hidden');
+                submitLoading.classList.add('hidden');
+            }
+        }
+    </script>
+</body>
+</html>
